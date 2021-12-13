@@ -9,10 +9,12 @@ def callback(msg):
 def publish():
     pub = rospy.Publisher('twin',String,queue_size=10)
     rate = rospy.Rate(10)
-    while True:
+    while not rospy.is_shutdown():
         str = 'hello twin : %s ' % rospy.get_time()
         pub.publish(str)
         rate.sleep()
+        rospy.Subscriber('twin',String,callback=callback)
+        rospy.spin()
 def subscrib():
     rospy.Subscriber('twin',String,callback=callback)
     rospy.spin()
@@ -20,12 +22,12 @@ def subscrib():
 
 if __name__=='__main__':
     rospy.init_node('sample_node')
-    pub = Thread(target=publish,args=())
-    sub = Thread(target=subscrib,args=())
-    pub.start()
-    sub.start()
-    pub.join()
-    sub.join()
+    # pub = Thread(target=publish,args=())
+    # sub = Thread(target=subscrib,args=())
+    # pub.start()
+    # sub.start()
+    # pub.join()
+    # sub.join()
     
     
 
