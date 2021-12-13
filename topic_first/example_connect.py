@@ -5,14 +5,15 @@ from threading import Thread
 
 def callback1(msg):
     global str1
+    rospy.loginfo('%s' % msg.data)
     str1 = 'connect : %s ' % msg.data
-    rospy.loginfo('compelete connect B1')
+    
 
 
 def callback2(msg):
     global str2
+    rospy.loginfo('%s' % msg.data)
     str2 = 'connect : %s ' % msg.data
-    rospy.loginfo('compelete connect B2')
 
 def pub():
     pub1 = rospy.Publisher('A1',String,queue_size=10)
