@@ -19,9 +19,9 @@ def pub():
     pub1 = rospy.Publisher('A1',String,queue_size=10)
     pub2 = rospy.Publisher('A2',String,queue_size=10)
     rate = rospy.Rate(10)
+    rospy.Subscriber('pub_B1',String,callback=callback1)
+    rospy.Subscriber('pub_B2',String,callback=callback2)
     while not rospy.is_shutdown():
-        rospy.Subscriber('pub_B1',String,callback=callback1)
-        rospy.Subscriber('pub_B2',String,callback=callback2)
         pub1.publish(str1)
         pub2.publish(str2)
         rate.sleep()
