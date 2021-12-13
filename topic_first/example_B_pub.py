@@ -9,7 +9,7 @@ if __name__=='__main__':
     rate = rospy.Rate(10)
 
     while True :
-        strb = 'im pub_b1'
+        strb = 'im pub_b1 '
         pub.publish(strb+str(i))
         rate.sleep()
         i+=1
