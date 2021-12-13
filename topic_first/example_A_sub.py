@@ -7,7 +7,7 @@ def fun_callback(msg):
     pass
 
 if __name__=='__main__':
-    rospy.init_node('sample_sub')
-    rospy.Subscriber('hello',String,callback=fun_callback)
+    rospy.init_node('A1')
+    rospy.Subscriber('A1',String,callback=fun_callback)
     rospy.spin()
     pass
