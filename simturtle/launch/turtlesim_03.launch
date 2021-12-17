@@ -1,0 +1,12 @@
+<launch>
+<arg name = "ns1_name"/>
+<group ns = "$(arg ns1_name)">
+    <node pkg = 'turtlesim' type = 'turtlesim_node' name = 'turtlesim_node'/>
+    <node pkg = 'turtlesim' type = 'turtle_teleop_key' name = 'turtle_teleop_key' output = 'screen'/>
+</group>
+<group ns = "ns2">
+    <node pkg = 'turtlesim' type = 'turtlesim_node' name = 'turtlesim_node'/>
+    <node pkg = 'turtlesim' type = 'turtle_teleop_key' name = 'turtle_teleop_key' output = 'screen'/>
+</group>
+
+</launch>
